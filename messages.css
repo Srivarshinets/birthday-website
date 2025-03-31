@@ -16,6 +16,7 @@ body {
     align-items: center;
     text-align: center;
     color: white;
+    padding: 20px;
 }
 
 /* Main container */
@@ -48,10 +49,9 @@ body {
     padding: 20px;
     border-radius: 10px;
     font-size: 1rem;
-    text-align: center;
-    min-height: 100px; /* Minimum height */
-    max-height: 1000px; /* Maximum height to prevent overflow */
-    overflow-y: auto; /* Enables scrolling for extra-long messages */
+    min-height: 100px;
+    max-height: 600px; /* Set a more practical max height */
+    overflow-y: auto; /* Enables scrolling for long messages */
     box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
     transition: opacity 0.5s ease-in-out;
     display: flex;
@@ -74,4 +74,49 @@ body {
 
 .message-box {
     animation: fadeIn 1s ease-in-out;
+}
+
+/* ✨ RESPONSIVE DESIGN ✨ */
+
+/* For Tablets (Less than 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .message-box {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+}
+
+/* For Mobile Devices (Less than 768px) */
+@media (max-width: 768px) {
+    .messages {
+        flex-direction: column;  /* Stack messages vertically */
+        gap: 15px;
+    }
+
+    .message-box {
+        width: 100%; /* Full width */
+        font-size: 1rem;
+        padding: 15px;
+    }
+}
+
+/* For Extra Small Screens (Less than 480px) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .message-box {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
 }
