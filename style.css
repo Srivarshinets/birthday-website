@@ -1,0 +1,59 @@
+/* Import Custom Font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    background: url('assets/Frame 3.png') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* Main container */
+.container {
+    background: rgba(0, 0, 0, 0.5); /* Slight dark overlay */
+    padding: 40px;
+    border-radius: 10px;
+}
+
+/* Title */
+.title {
+    font-size: 2.5rem;
+    text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Enter Button */
+.enter-btn {
+    background: white;
+    color: black;
+    padding: 12px 24px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+}
+
+.enter-btn:hover {
+    background: black;
+    color: white;
+    box-shadow: 4px 4px 15px rgba(255, 255, 255, 0.8);
+}
