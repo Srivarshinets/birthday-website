@@ -3,110 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
-    <title>Daddu is a year older</title>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <title>Happy Birthday Richie</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="card">
-        <img src="./cake.jpg" alt="cake" class="cake">
-        <div class="text">
-            <h1>Happiest Birthday Richieeeeeeee</h1>
-            <p>I hope you have the best birthday today and we loveeeee youuu </p>
-            <p class="muted">- Sunshine</p>
-        </div>
-        <div class="space"></div>
-
-        <!-- Message form -->
-        <form id="messageForm">
-            <input type="text" id="messageInput" placeholder="Leave a message..." required>
-            <button type="submit">Submit</button>
-            
-            <!-- Play/Pause Audio Button inside the form -->
-            <button type="button" id="playPauseButton">Play Song 🎵</button>
-        </form>
-        
-        <!-- Messages display -->
-        <div id="messages"></div>
-
-        <!-- Clear messages button -->
-        <button id="clearMessages">Clear Messages</button>
+    <div class="container">
+        <h1 class="title">Happiest Birthday Richie</h1>
+        <p class="subtitle">Let's see what everyone has to say</p>
+        <button class="enter-btn" onclick="goToMessages()">Enter</button>
     </div>
 
-    <!-- Audio element (Hidden) -->
-    <audio id="audio" src="golden.mp3" preload="auto"></audio>
-
     <script>
-        const playPauseButton = document.getElementById('playPauseButton');
-        const audio = document.getElementById('audio');
-        const clearMessagesButton = document.getElementById('clearMessages');
-        const messagesContainer = document.getElementById("messages");
-
-        // Play/Pause Audio Functionality
-        playPauseButton.addEventListener('click', function() {
-            if (audio.paused) {
-                audio.play();
-                playPauseButton.textContent = "Pause Song ⏸️";
-            } else {
-                audio.pause();
-                playPauseButton.textContent = "Play Song 🎵";
-            }
-        });
-
-        // Function to load messages from localStorage and display them
-        function loadMessages() {
-            const messages = JSON.parse(localStorage.getItem("birthdayMessages")) || [];
-            messagesContainer.innerHTML = ""; // Clear existing messages
-
-            messages.forEach(({ text, timestamp }) => {
-                const messageDiv = document.createElement("div");
-                messageDiv.textContent = `${text} (Submitted on: ${new Date(timestamp).toLocaleString()})`;
-                messagesContainer.appendChild(messageDiv);
-            });
+        function goToMessages() {
+            window.location.href = "message.html";  // Link to the second page
         }
-
-        // Function to handle form submission
-        document.getElementById("messageForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const messageInput = document.getElementById("messageInput");
-            const message = messageInput.value.trim();
-
-            if (message === "") return; // Prevent empty messages
-
-            // Get existing messages from localStorage
-            const messages = JSON.parse(localStorage.getItem("birthdayMessages")) || [];
-            messages.push({ text: message, timestamp: Date.now() });
-
-            // Save the updated messages back to localStorage
-            localStorage.setItem("birthdayMessages", JSON.stringify(messages));
-
-            // Clear the input field
-            messageInput.value = "";
-
-            // Trigger confetti animation
-            confetti();
-
-            // Reload messages to display the updated list
-            loadMessages();
-        });
-
-        // Clear messages when button is clicked
-        clearMessagesButton.addEventListener("click", function() {
-            localStorage.removeItem("birthdayMessages"); // Clears saved messages
-            messagesContainer.innerHTML = ""; // Clears displayed messages
-            alert("Messages cleared!");
-        });
-
-        // Load messages when the page is loaded
-        window.onload = loadMessages;
-
-        // Change background color dynamically
-        setInterval(() => {
-            document.body.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 90%)`;
-        }, 5000);
     </script>
 
 </body>
