@@ -58,4 +58,4 @@ function updateMessages() {
 
 // Start updating messages every 5 seconds
 updateMessages();
-setInterval(updateMessages, 15000);
+setInterval(updateMessages, 60000);
